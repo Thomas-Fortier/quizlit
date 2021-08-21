@@ -1,10 +1,13 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import quizRoute from './src/routes/quiz.route.js';
 import mongoose from 'mongoose';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
+// Routes
+import quizRoute from './src/routes/quiz.route.js';
+import userRoute from './src/routes/user.route.js';
 
 // Setup
 const __filename = fileURLToPath(import.meta.url);
@@ -31,12 +34,13 @@ var corsMiddleware = function(req, res, next) {
   next();
 }
 
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
 app.use(corsMiddleware);
 
 // Routes
-app.use('/api/v1/quizes', quizRoute);
+app.use('/api/v1/quizzes', quizRoute);
+app.use('/api/v1/users', userRoute);
 
 // Serve static files
 if (process.env.NODE_ENV === 'production') {
