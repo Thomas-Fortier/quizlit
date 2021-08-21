@@ -1,0 +1,26 @@
+{
+  "name": "quizlit",
+  "version": "1.0.0",
+  "description": "A web application for creating quizes / tests.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "server": "nodemon server.js --prefix api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas-Fortier/quizlit.git"
+  },
+  "author": "Thomas Fortier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomas-Fortier/quizlit/issues"
+  },
+  "homepage": "https://github.com/Thomas-Fortier/quizlit#readme",
+  "dependencies": {
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
+    "react-google-login": "^5.2.2"
+  }
+}
