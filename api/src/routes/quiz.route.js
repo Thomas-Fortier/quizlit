@@ -6,6 +6,7 @@ const router = express.Router();
 // GET
 router.route('/creator/:creatorId').get(QuizController.findByUserId);
 router.route('/class/:classId').get(QuizController.findByClassId);
+router.route('/id/:id').get(QuizController.findById);
 // POST
 router.route('/').post(QuizController.post);
 // DELETE

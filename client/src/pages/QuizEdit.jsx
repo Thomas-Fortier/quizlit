@@ -1,10 +1,9 @@
-import react, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Route, useLocation, useParams } from 'react-router-dom';
-import { Redirect } from 'react-router';
-import ViewQuestion from '../components/ViewQuestion';
+import EditQuestion from "../components/EditQuestion";
+import axios from "axios";
+import { useLocation, Redirect } from "react-router";
+import { useState, useEffect } from 'react';
 
-export default function QuizView() {
+export default function QuizEdit() {
   let quizId;
   const [quiz, setQuizData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,7 +31,7 @@ export default function QuizView() {
     let questions = [];
 
     for (let index = 0; index < quiz.questions.length; index++) 
-      questions.push(<ViewQuestion key={index} question={quiz.questions[index]} number={index + 1} />);
+      questions.push(<EditQuestion key={index} question={quiz.questions[index]} number={index + 1} />);
     
     return questions;
   }
@@ -40,7 +39,7 @@ export default function QuizView() {
   return loading ? (
     <p>Loading...</p>
   ) : (
-    <div className='quiz-view'>
+    <div className='quiz-edit'>
       {getRenderableQuestions()}
     </div>
   );

@@ -34,7 +34,7 @@ export default function Dashboard() {
         row.push(<QuizCard key={quizzes[quiz]._id} quizData={quizzes[quiz]} />);
 
         if (quiz + 1 === quizzes.length) {
-          board.push(<div key={quiz} className='row'>{row}</div>);
+          board.push(<div key={'final' + quiz} className='row'>{row}</div>);
         }
 
         continue;

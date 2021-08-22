@@ -1,8 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Route } from 'react-router';
-
-// Pages
-import QuizView from '../pages/QuizView';
 
 export default function QuizCard({ quizData }) {
   return quizData ? (
@@ -11,15 +7,13 @@ export default function QuizCard({ quizData }) {
       <p>Responses: {quizData.submissions.length}</p>
       
       <div className='card-buttons'>
-        <Link to={`/quiz/view/${quizData._id}`}>
+        <Link to={{pathname: '/quiz/view', state: {id: quizData._id}}}>
           <button>View</button>
         </Link>
-        <Link to={`/quiz/edit/:id`} >
+        <Link to={{pathname: '/quiz/edit', state: {id: quizData._id}}}>
           <button>Edit</button>
         </Link>
       </div>
-
-      <Route path={`/quiz/view/${quizData._id}`} render={(props) => (<QuizView {...props} id={quizData._id} />)} />
     </div>
   ) : (
     <div className='quiz-card'>

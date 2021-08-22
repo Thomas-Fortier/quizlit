@@ -9,6 +9,8 @@ import { UserContext } from './util/userContext.js';
 import CreateQuiz from './pages/CreateQuiz';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import QuizView from './pages/QuizView';
+import QuizEdit from './pages/QuizEdit.jsx';
 
 // Components
 import Header from './components/Header.jsx';
@@ -25,6 +27,8 @@ export default function App() {
           <Route path='/quiz/create' component={CreateQuiz} exact/>
           <Route path='/dashboard' component={Dashboard} exact/>
           <Route path='/login' component={Login} exact />
+          <Route path='/quiz/view' component={QuizView} exact />
+          <Route path='/quiz/edit' component={QuizEdit} exact />
         </main>
       </UserContext.Provider>
     </Router>

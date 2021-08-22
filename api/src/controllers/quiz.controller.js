@@ -9,6 +9,10 @@ export default class QuizController {
     res.status(200).json(await Quiz.find({ classId: req.params.classId }));
   }
 
+  static async findById(req, res, next) {
+    res.status(200).json(await Quiz.find({ _id: req.params.id }));
+  }
+
   static async post(req, res, next) {
     let newQuiz = new Quiz(getQuizInfo(req));
 
